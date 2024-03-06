@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sunnah_songi/home_page.dart';
+import 'package:sunnah_songi/app/modules/home/ui/home_page.dart';
 
 class SunnahSongi extends StatelessWidget {
   const SunnahSongi({Key? key}) : super(key: key);
