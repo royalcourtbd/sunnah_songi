@@ -13,4 +13,5 @@ class SvgPath {
   SvgPath._();
 
   static const String imgMinar = "assets/images/minar.png";
+  static const String icSun = "assets/images/sunrise.png";
 }

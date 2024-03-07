@@ -1,43 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:sunnah_songi/app/static/svg_path.dart';
+import 'package:sunnah_songi/app/modules/home/widgets/daily_salat_info.dart';
+import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart';
+import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
+import 'package:sunnah_songi/app/static/ui_const.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final List<Map<String, String>> prayerTimesInBangla = [
+    {'name': 'ফজর', 'range': '০৫ঃ০১ - ০৬ঃ১৫'},
+    {'name': 'ধোহর', 'range': '১২ঃ১৫ - ১২ঃ৪৫'},
+    {'name': 'আসর', 'range': '৩ঃ৪৫ - ৪ঃ৩০'},
+    {'name': 'মাগরিব', 'range': '৬ঃ১৫ - ৬ঃ৩০'},
+    {'name': 'ইশা', 'range': '৭ঃ৩০ - ৮ঃ১৫'},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Sunnah Songi'),
+      appBar: AppBar(
+        title: const Text('Sunnah Songi'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ListView(
+          children: <Widget>[
+            gapH15,
+            const ShowLocationSection(),
+            gapH15,
+            const ShowTodaysDate(),
+            gapH15,
+            DailySalatInfo(prayerTimesInBangla: prayerTimesInBangla)
+          ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: ListView(
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xffffeaea),
-                      Color(0xffffc3c3),
-                    ],
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      SvgPath.imgMinar,
-                      width: 100,
-                      height: 100,
-                      color: const Color(0xffffc3c3),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ));
+      ),
+    );
   }
+
+  // Helper function to build a prayer time item
 }
