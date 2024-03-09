@@ -1,4 +1,7 @@
+import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sunnah_songi/app/modules/home/controller/home_controller.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/daily_salat_info.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
@@ -17,6 +20,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final PrayerTimes prayerTimes = PrayerTimes(
+    //   homeController.myCoordinates,
+    //   homeController.nyDate,
+    //   homeController.params,
+    // );
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sunnah Songi'),
