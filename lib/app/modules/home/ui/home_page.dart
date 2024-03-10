@@ -4,9 +4,14 @@ import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart
 import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
 import 'package:sunnah_songi/app/static/ui_const.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final List<Map<String, String>> prayerTimesInBangla = [
     {'name': 'ফজর', 'range': '০৫ঃ০১ - ০৬ঃ১৫'},
     {'name': 'ধোহর', 'range': '১২ঃ১৫ - ১২ঃ৪৫'},
@@ -14,6 +19,11 @@ class HomePage extends StatelessWidget {
     {'name': 'মাগরিব', 'range': '৬ঃ১৫ - ৬ঃ৩০'},
     {'name': 'ইশা', 'range': '৭ঃ৩০ - ৮ঃ১৫'},
   ];
+
+
+  
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +36,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             gapH15,
-            const ShowLocationSection(),
+             ShowLocationSection(),
             gapH15,
             const ShowTodaysDate(),
             gapH15,
@@ -36,6 +46,4 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-  // Helper function to build a prayer time item
 }

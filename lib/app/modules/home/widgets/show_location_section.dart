@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sunnah_songi/app/config/sunnah_screen.dart';
+import 'package:sunnah_songi/app/modules/home/controller/home_controller.dart';
 import 'package:sunnah_songi/app/static/svg_path.dart';
 import 'package:sunnah_songi/app/static/ui_const.dart';
 
 class ShowLocationSection extends StatelessWidget {
-  const ShowLocationSection({
+   ShowLocationSection({
     super.key,
   });
+
+  late HomeController _homeController = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +56,21 @@ class ShowLocationSection extends StatelessWidget {
                       color: Colors.white,
                     ),
                     gapW5,
-                    const Text(
-                      'Banasree, Dhaka,',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      softWrap: true,
-                      style: TextStyle(
-                        overflow: TextOverflow.ellipsis,
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
+                    GetBuilder<HomeController>(
+                      builder: (controller) {
+                        return  Text(
+                          // 'Banasree, Dhaka,',
+                          controller.locationDetails,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          softWrap: true,
+                          style: const TextStyle(
+                            overflow: TextOverflow.ellipsis,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        );
+                      }
                     ),
                   ],
                 ),
