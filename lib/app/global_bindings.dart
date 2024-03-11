@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sunnah_songi/app/modules/home/controller/home_controller.dart';
 import 'package:sunnah_songi/app/network/repository/home_repository.dart';
 import 'package:sunnah_songi/app/network/repository/location_repository.dart';

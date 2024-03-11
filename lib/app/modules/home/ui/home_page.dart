@@ -14,13 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Map<String, String>> prayerTimesInBangla = [
-    {'name': 'ফজর', 'range': '০৫ঃ০১ - ০৬ঃ১৫'},
-    {'name': 'ধোহর', 'range': '১২ঃ১৫ - ১২ঃ৪৫'},
-    {'name': 'আসর', 'range': '৩ঃ৪৫ - ৪ঃ৩০'},
-    {'name': 'মাগরিব', 'range': '৬ঃ১৫ - ৬ঃ৩০'},
-    {'name': 'ইশা', 'range': '৭ঃ৩০ - ৮ঃ১৫'},
-  ];
+
 
   HomeController _homeController = Get.find();
 
@@ -52,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               gapH15,
               const ShowTodaysDate(),
               gapH15,
-              DailySalatInfo(prayerTimesInBangla: prayerTimesInBangla)
+              const DailySalatInfo()
             ],
           ),
         ),
