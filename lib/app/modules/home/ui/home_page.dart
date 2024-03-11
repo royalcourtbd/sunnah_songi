@@ -33,20 +33,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sunnah Songi'),
+        title: const Text('সুন্নাহ সঙ্গী'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: RefreshIndicator(
           onRefresh: () async{
-           await  _homeController.getCurrentLocation();
-             _homeController.getCurrentArabicDate();
+            _homeController.initFunctions();
+          //  await  _homeController.getCurrentLocation();
+          //    _homeController.getCurrentArabicDate();
             
           },
           child: ListView(
+            physics: BouncingScrollPhysics(),
             children: <Widget>[
               gapH15,
-               ShowLocationSection(),
+               const ShowLocationSection(),
               gapH15,
               const ShowTodaysDate(),
               gapH15,

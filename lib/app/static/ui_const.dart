@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sunnah_songi/app/config/sunnah_screen.dart';
+import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
 
 SizedBox gapH3 = SizedBox(height: threePx);
 SizedBox gapH4 = SizedBox(height: fourPx);
