@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
+import 'package:sunnah_songi/app/modules/home/widgets/daily_salat_info.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart';
+import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/start_page_announcement.dart';
 import 'package:sunnah_songi/app/static/ui_const.dart';
 
@@ -32,6 +34,10 @@ class StartPage extends StatelessWidget {
                     StartPageAnnouncement(theme: Theme.of(context)),
                     gapH30,
                     const ShowLocationSection(),
+                    gapH15,
+                    const ShowTodaysDate(),
+                    gapH15,
+                    const DailySalatInfo()
                   ],
                 ),
                 AppBar(

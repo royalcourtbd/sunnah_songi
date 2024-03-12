@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
 import 'package:sunnah_songi/app/modules/home/controller/home_controller.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/day_night_info_row.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/fasting_timeline_card.dart';
@@ -11,12 +12,14 @@ class DailySalatInfo extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeController>(
-      builder: (controller) {
-        return Container(
+    return GetBuilder<HomeController>(builder: (controller) {
+      return Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: twentyPx,
+        ),
+        child: Container(
           padding: padding15,
           decoration: BoxDecoration(
             color: const Color(0xffE5F1F1),
@@ -42,13 +45,14 @@ class DailySalatInfo extends StatelessWidget {
               gapH10,
               const DayNightInfoRow(),
               gapH10,
-              PrayerTimeListCard(prayerTimesInBangla: controller.prayerTimesInBangla),
+              PrayerTimeListCard(
+                  prayerTimesInBangla: controller.prayerTimesInBangla),
               gapH10,
               const FastingTimelineCard(),
             ],
           ),
-        );
-      }
-    );
+        ),
+      );
+    });
   }
 }
