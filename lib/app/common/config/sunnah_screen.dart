@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sunnah_songi/app/sunnah_songi.dart';
@@ -44,9 +43,9 @@ void logErrorStatic<T extends Object>(
 ) {
   if (!kDebugMode) return;
 
-  final String logName = "$name ERROR - ${DateTime.now()}";
-  final String message =
-      "${Platform.isIOS ? "" : logName} \n   ${exception is Error ? "$exception\n ${exception.stackTrace}" : exception}";
+  // final String logName = "$name ERROR - ${DateTime.now()}";
+  // final String message =
+  //     "${Platform.isIOS ? "" : logName} \n   ${exception is Error ? "$exception\n ${exception.stackTrace}" : exception}";
   // Platform.isIOS ? dev.log(message, name: logName) : _logger.error(message);
 }
 

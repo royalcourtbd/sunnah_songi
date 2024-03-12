@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sunnah_songi/app/config/quran_color.dart';
-import 'package:sunnah_songi/app/config/sunnah_screen.dart';
+import 'package:sunnah_songi/app/common/config/quran_color.dart';
+import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
 import 'package:sunnah_songi/app/static/constants.dart';
 import 'package:sunnah_songi/app/static/font_family.dart';
 import 'package:sunnah_songi/app/sunnah_songi.dart';

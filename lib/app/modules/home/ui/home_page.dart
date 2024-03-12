@@ -7,16 +7,22 @@ import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart
 import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
 import 'package:sunnah_songi/app/static/ui_const.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-  final List<Map<String, String>> prayerTimesInBangla = [
-    {'name': 'ফজর', 'range': '০৫ঃ০১ - ০৬ঃ১৫'},
-    {'name': 'ধোহর', 'range': '১২ঃ১৫ - ১২ঃ৪৫'},
-    {'name': 'আসর', 'range': '৩ঃ৪৫ - ৪ঃ৩০'},
-    {'name': 'মাগরিব', 'range': '৬ঃ১৫ - ৬ঃ৩০'},
-    {'name': 'ইশা', 'range': '৭ঃ৩০ - ৮ঃ১৫'},
-  ];
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+
+  HomeController _homeController = Get.find();
+
+
+  
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +33,30 @@ class HomePage extends StatelessWidget {
     // );
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sunnah Songi'),
+        title: const Text('সুন্নাহ সঙ্গী'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: ListView(
-          children: <Widget>[
-            gapH15,
-            const ShowLocationSection(),
-            gapH15,
-            const ShowTodaysDate(),
-            gapH15,
-            DailySalatInfo(prayerTimesInBangla: prayerTimesInBangla)
-          ],
+        child: RefreshIndicator(
+          onRefresh: () async{
+            _homeController.initFunctions();
+          //  await  _homeController.getCurrentLocation();
+          //    _homeController.getCurrentArabicDate();
+            
+          },
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: <Widget>[
+              gapH15,
+               const ShowLocationSection(),
+              gapH15,
+              const ShowTodaysDate(),
+              gapH15,
+              const DailySalatInfo()
+            ],
+          ),
         ),
       ),
     );
   }
-
-  // Helper function to build a prayer time item
 }
