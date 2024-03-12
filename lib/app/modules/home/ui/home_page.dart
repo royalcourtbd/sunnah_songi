@@ -1,4 +1,3 @@
-import 'package:adhan/adhan.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sunnah_songi/app/modules/home/controller/home_controller.dart';
@@ -15,14 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-  HomeController _homeController = Get.find();
-
-
-  
-
-
+  final HomeController _homeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -38,17 +30,16 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: RefreshIndicator(
-          onRefresh: () async{
+          onRefresh: () async {
             _homeController.initFunctions();
-          //  await  _homeController.getCurrentLocation();
-          //    _homeController.getCurrentArabicDate();
-            
+            //  await  _homeController.getCurrentLocation();
+            //    _homeController.getCurrentArabicDate();
           },
           child: ListView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             children: <Widget>[
               gapH15,
-               const ShowLocationSection(),
+              const ShowLocationSection(),
               gapH15,
               const ShowTodaysDate(),
               gapH15,
