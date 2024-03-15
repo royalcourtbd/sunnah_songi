@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
+import 'package:sunnah_songi/app/modules/home/controller/home_controller.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/daily_salat_info.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
@@ -12,7 +15,7 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white.withOpacity(0.98),
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
         child: Column(
@@ -22,7 +25,7 @@ class StartPage extends StatelessWidget {
                 ClipPath(
                   clipper: OvalBottomBorderClipper(),
                   child: Container(
-                    height: 48.percentHeight,
+                    height: 45.percentHeight,
                     decoration: BoxDecoration(
                       gradient: bgLightGradient,
                     ),
@@ -30,9 +33,9 @@ class StartPage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    SizedBox(height: SunnahScreen.height * 0.12),
+                    SizedBox(height: SunnahScreen.height * 0.14),
                     StartPageAnnouncement(theme: Theme.of(context)),
-                    gapH30,
+                    gapH15,
                     const ShowLocationSection(),
                     gapH15,
                     const ShowTodaysDate(),
@@ -50,8 +53,11 @@ class StartPage extends StatelessWidget {
                   ),
                   actions: [
                     IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.location_on_rounded),
+                      onPressed: () {
+                        Fluttertoast.showToast(msg: "Updating Location");
+                        Get.find<HomeController>().initFunctions();
+                      },
+                      icon: const Icon(Icons.refresh),
                     )
                   ],
                 )
@@ -68,7 +74,8 @@ class StartPage extends StatelessWidget {
     end: Alignment.bottomCenter,
     stops: [0.0, 0.5, 1.0],
     colors: [
-      Color.fromARGB(255, 114, 245, 214),
+      // Color.fromARGB(255, 114, 245, 214),
+      Color.fromARGB(255, 99, 206, 181),
       Color(0xff4abaa1),
       Color.fromARGB(255, 85, 147, 133),
     ],

@@ -49,7 +49,7 @@ class StartPageAnnouncement extends StatelessWidget {
             options: CarouselOptions(
               viewportFraction: 1,
               autoPlay: true,
-              autoPlayInterval: 9.inSeconds,
+              autoPlayInterval: 3.inSeconds,
               pauseAutoPlayOnTouch: false,
             ),
           ),

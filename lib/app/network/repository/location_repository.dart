@@ -12,8 +12,8 @@ class LocationRepository extends GetxService {
       return permission == LocationPermission.always ||
           permission == LocationPermission.whileInUse;
     } catch (e) {
-      print("Error checking location permission: $e");
-      return false;
+      log("Error checking location permission: $e");
+      return false; 
     }
   }
   Future<Position> getCurrentPosition() async {
@@ -43,7 +43,7 @@ class LocationRepository extends GetxService {
         desiredAccuracy: LocationAccuracy.high,
       );
     } catch (e) {
-      print("Error: $e");
+      log("Error: $e");
       throw e.toString();
     }
   }

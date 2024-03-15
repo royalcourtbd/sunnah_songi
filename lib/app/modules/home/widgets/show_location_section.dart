@@ -21,6 +21,13 @@ class ShowLocationSection extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 1,
+              color: Colors.grey[200]!,
+              offset: Offset(00, 02)
+            )
+          ]
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,13 +39,13 @@ class ShowLocationSection extends StatelessWidget {
                 const Text(
                   'আসসালামু আলাইকুম',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(
                   width: 60.percentWidth,
-                  height: 50,
+                  height: 30,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -48,7 +55,6 @@ class ShowLocationSection extends StatelessWidget {
                       gapW5,
                       GetBuilder<HomeController>(builder: (controller) {
                         return Text(
-                          // 'Banasree, Dhaka,',
                           controller.locationDetails,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
@@ -66,8 +72,8 @@ class ShowLocationSection extends StatelessWidget {
             ),
             Image.asset(
               SvgPath.imgMinar,
-              width: 90,
-              height: 90,
+              width: 60,
+              height: 60,
               color: const Color.fromARGB(255, 0, 17, 13),
             ),
           ],

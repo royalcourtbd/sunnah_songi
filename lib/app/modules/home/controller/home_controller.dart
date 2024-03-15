@@ -15,7 +15,7 @@ class HomeController extends GetxController implements GetxService {
   HomeController(
       {required this.locationRepository, required this.homeRepository});
 
-  String locationDetails = "Updating...";
+  String locationDetails = "Checking";
   String arabicDate = "";
   String banglaDate = "";
   List<Map<String, String>> prayerTimesInBangla = [
@@ -24,7 +24,12 @@ class HomeController extends GetxController implements GetxService {
     {'name': 'আসর', 'range': '০০ঃ০০ - ০০ঃ০০'},
     {'name': 'মাগরিব', 'range': '০০ঃ০০ - ০০ঃ০০'},
     {'name': 'ইশা', 'range': '০০ঃ০০ - ০০ঃ০০'},
+
   ];
+
+    String sunRise = "00.00";
+    String sunSet = "00.00";
+
 
   @override
   onInit() {
@@ -33,7 +38,9 @@ class HomeController extends GetxController implements GetxService {
   }
 
   void initFunctions() async {
+    await getCurrentLocation();
     String? locationString = await homeRepository.getSavedLocation();
+    print("====> $locationString");
 
     if (locationString != null) {
       locationDetails = locationString;
@@ -57,7 +64,6 @@ class HomeController extends GetxController implements GetxService {
         update();
       });
     } catch (e) {
-      print("Error: $e");
       locationDetails = "Unknown!";
       update();
       getCurrentLocation();
@@ -81,7 +87,7 @@ class HomeController extends GetxController implements GetxService {
     Position position = await locationRepository.getCurrentPosition();
     final myCoordinates = Coordinates(position.latitude, position.longitude);
     final params = CalculationMethod.karachi.getParameters();
-    params.madhab = Madhab.hanafi;
+    params.madhab = Madhab.shafi;
     final prayerTimes = PrayerTimes.today(myCoordinates, params);
 
     List<Map<String, String>> output = [];
@@ -128,82 +134,21 @@ class HomeController extends GetxController implements GetxService {
     output.add({
       'name': 'ইশা',
       'range':
-          '${DateFormat.Hm().format(ishaStart)} - ${DateFormat.Hm().format(ishaEnd)}'
+          '${DateFormat.jm().format(ishaStart)} - ${DateFormat.jm().format(ishaEnd)}'
     });
     // Sunrise
     DateTime sunriseStart = prayerTimes.sunrise;
     DateTime sunset = prayerTimes.maghrib
         .subtract(const Duration(minutes: 3)); // Calculate sunset time
-    output.add({
-      'name': 'sunrise',
-      'range':
-          '${DateFormat.jm().format(sunriseStart)} - ${DateFormat.jm().format(sunset)}'
-    });
+
+    sunRise = DateFormat.jms().format(sunriseStart);
+    sunSet = DateFormat.jms().format(sunset);
+    // output.add({
+    //   'name': 'sunrise',
+    //   'range':
+    //       '${DateFormat.jms().format(sunriseStart)} - ${DateFormat.jm().format(sunset)}'
+    // });
 
     return output;
   }
-
-// Future<void> getPrayerTime() async {
-//   Position position = await locationRepository.getCurrentPosition();
-//   print('My Prayer Times');
-
-//   final myCoordinates = Coordinates(position.latitude, position.longitude);
-//   final params = CalculationMethod.karachi.getParameters();
-//   params.madhab = Madhab.hanafi;
-//   final prayerTimes = PrayerTimes.today(myCoordinates, params);
-
-//   print("---Today's Prayer Times in Your Local Timezone(${prayerTimes.fajr.timeZoneName})---");
-
-//   // Fajr
-//   DateTime fajrStart = prayerTimes.fajr!;
-//   DateTime fajrEnd = prayerTimes.sunrise!.subtract(const Duration(minutes: 1));
-//   print('Fajr: ${DateFormat.jm().format(fajrStart)} - ${DateFormat.jm().format(fajrEnd)}');
-
-//   // Sunrise
-//   DateTime sunriseStart = prayerTimes.sunrise!;
-//   DateTime sunset = prayerTimes.maghrib!.subtract(const Duration(minutes: 10)); // Calculate sunset time
-//   print('Sunrise: ${DateFormat.jm().format(sunriseStart)} - Sunset: ${DateFormat.jm().format(sunset)}');
-
-//   // Dhuhr
-//   DateTime dhuhrStart = prayerTimes.dhuhr!;
-//   DateTime dhuhrEnd = prayerTimes.asr!.subtract(const Duration(minutes: 1));
-//   print('Dhuhr: ${DateFormat.jm().format(dhuhrStart)} - ${DateFormat.jm().format(dhuhrEnd)}');
-
-//   // Asr
-//   DateTime asrStart = prayerTimes.asr!;
-//   DateTime asrEnd = prayerTimes.maghrib!.subtract(const Duration(minutes: 1));
-//   print('Asr: ${DateFormat.jm().format(asrStart)} - ${DateFormat.jm().format(asrEnd)}');
-
-//   // Maghrib
-//   DateTime maghribStart = prayerTimes.maghrib!;
-//   DateTime maghribEnd = prayerTimes.isha!.subtract(const Duration(minutes: 1));
-//   print('Maghrib: ${DateFormat.jm().format(maghribStart)} - ${DateFormat.jm().format(maghribEnd)}');
-
-//   // Isha
-//   DateTime ishaStart = prayerTimes.isha!;
-//   DateTime ishaEnd = ishaStart.add(const Duration(hours: 5,minutes: 56));
-//   print('Isha: ${DateFormat.jm().format(ishaStart)} - ${DateFormat.jm().format(ishaEnd)}');
-
-//   print('---');
-// }
-
-// Future<void> getPrayerTime() async {
-//   Position position = await  locationRepository.getCurrentPosition();
-//    print('My Prayer Times');
-//   final myCoordinates = Coordinates(position.latitude, position.longitude); // Replace with your own location lat, lng.
-//   final params = CalculationMethod.karachi.getParameters();
-//   params.madhab = Madhab.hanafi;
-//   final prayerTimes = PrayerTimes.today(myCoordinates, params);
-
-//   print("---Today's Prayer Times in Your Local Timezone(${prayerTimes.fajr.timeZoneName})---");
-//   print(DateFormat.jm().format(prayerTimes.fajr));
-//   print(DateFormat.jm().format(prayerTimes.sunrise));
-//   print(DateFormat.jm().format(prayerTimes.dhuhr));
-//   print(DateFormat.jm().format(prayerTimes.asr));
-//   print(DateFormat.jm().format(prayerTimes.maghrib));
-//   print(DateFormat.jm().format(prayerTimes.isha));
-
-//   print('---');
-
-// }
 }

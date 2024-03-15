@@ -625,6 +625,7 @@ double get twentySevenPx {
 
 double? _heightPercent;
 double? _widthPercent;
+// ignore: non_constant_identifier_names
 double? _SunnahScreenWidthQuarterPercentage;
 
 /// A set of extensions for numerical types that provide convenience methods for
