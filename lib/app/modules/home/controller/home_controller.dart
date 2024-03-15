@@ -26,6 +26,9 @@ class HomeController extends GetxController implements GetxService {
     {'name': 'ইশা', 'range': '০০ঃ০০ - ০০ঃ০০'},
 
   ];
+  
+
+
 
     String sunRise = "00.00";
     String sunSet = "00.00";
@@ -98,7 +101,7 @@ class HomeController extends GetxController implements GetxService {
     output.add({
       'name': 'ফজর',
       'range':
-          '${DateFormat.Hm().format(fajrStart)} - ${DateFormat.Hm().format(fajrEnd)}'
+          '${DateFormat.jm().format(fajrStart)} - ${DateFormat.jm().format(fajrEnd)}'
     });
 
     // Dhuhr
@@ -107,7 +110,7 @@ class HomeController extends GetxController implements GetxService {
     output.add({
       'name': 'ধোহর',
       'range':
-          '${DateFormat.Hm().format(dhuhrStart)} - ${DateFormat.Hm().format(dhuhrEnd)}'
+          '${DateFormat.jm().format(dhuhrStart)} - ${DateFormat.jm().format(dhuhrEnd)}'
     });
 
     // Asr
@@ -116,7 +119,7 @@ class HomeController extends GetxController implements GetxService {
     output.add({
       'name': 'আসর',
       'range':
-          '${DateFormat.Hm().format(asrStart)} - ${DateFormat.Hm().format(asrEnd)}'
+          '${DateFormat.jm().format(asrStart).toString()} - ${DateFormat.jm().format(asrEnd)}'
     });
 
     // Maghrib
@@ -125,7 +128,7 @@ class HomeController extends GetxController implements GetxService {
     output.add({
       'name': 'মাগরিব',
       'range':
-          '${DateFormat.Hm().format(maghribStart)} - ${DateFormat.Hm().format(maghribEnd)}'
+          '${DateFormat.jm().format(maghribStart)} - ${DateFormat.jm().format(maghribEnd)}'
     });
 
     // Isha
@@ -139,10 +142,10 @@ class HomeController extends GetxController implements GetxService {
     // Sunrise
     DateTime sunriseStart = prayerTimes.sunrise;
     DateTime sunset = prayerTimes.maghrib
-        .subtract(const Duration(minutes: 3)); // Calculate sunset time
+        .subtract(const Duration(minutes: 2)); // Calculate sunset time
 
-    sunRise = DateFormat.jms().format(sunriseStart);
-    sunSet = DateFormat.jms().format(sunset);
+    sunRise = DateFormat.jm().format(sunriseStart);
+    sunSet = DateFormat.jm().format(sunset);
     // output.add({
     //   'name': 'sunrise',
     //   'range':

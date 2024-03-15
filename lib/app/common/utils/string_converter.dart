@@ -43,3 +43,35 @@ String formatDateTimeInBangla(DateTime dateTime) {
 
   return formattedDate.replaceAll("বার", '');
 }
+
+
+
+String convertTimeToBangla(String timeString) {
+  // Map English digits to Bangla digits
+  final Map<String, String> banglaDigits = {
+    '0': '০',
+    '1': '১',
+    '2': '২',
+    '3': '৩',
+    '4': '৪',
+    '5': '৫',
+    '6': '৬',
+    '7': '৭',
+    '8': '৮',
+    '9': '৯',
+    ':': ':', // Keep colon as it is
+  };
+
+  // Convert each character in the time string
+  String banglaTime = '';
+  for (int i = 0; i < timeString.length; i++) {
+    final char = timeString[i];
+    if (banglaDigits.containsKey(char)) {
+      banglaTime += banglaDigits[char]!;
+    } else {
+      banglaTime += char; // Keep other characters as they are
+    }
+  }
+
+  return banglaTime;
+}
