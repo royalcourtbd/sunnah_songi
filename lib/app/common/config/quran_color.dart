@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class QuranColor {
+class SunnahColor {
   //Brown Theme Color
   static const Color scaffoldBachgroundColorLight = Color(0xFFFDFAF3);
   static const Color primaryColorLight = Color(0xFF614730);
@@ -8,6 +8,7 @@ class QuranColor {
   static const Color cardColorLight = Color(0xFFF4EDE3);
   static const Color secondaryColorLight = Color(0xFFFBECD6);
   static const Color appbarColorLight = Color(0xff795B41);
+  static const Color appBarColor = Color.fromARGB(255, 99, 206, 181);
 
   //dark theme Color
   static const Color scaffoldBachgroundColorDark = Color(0xFF010919);

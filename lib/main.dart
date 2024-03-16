@@ -4,8 +4,12 @@ import 'package:sunnah_songi/app/sunnah_songi.dart';
 import 'package:sunnah_songi/firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await initial();
 
   runApp(const SunnahSongi());
+}
+
+initial() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 }
