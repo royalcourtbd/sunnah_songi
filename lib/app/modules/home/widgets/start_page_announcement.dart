@@ -37,6 +37,7 @@ class StartPageAnnouncement extends StatelessWidget {
                     maxLines: 7,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium!.copyWith(
+                      fontFamily: "Roboto",
                       fontSize: fourteenPx,
                       fontWeight: FontWeight.w200,
                       height: 1.6,
@@ -49,7 +50,7 @@ class StartPageAnnouncement extends StatelessWidget {
             options: CarouselOptions(
               viewportFraction: 1,
               autoPlay: true,
-              autoPlayInterval: 3.inSeconds,
+              autoPlayInterval: 9.inSeconds,
               pauseAutoPlayOnTouch: false,
             ),
           ),

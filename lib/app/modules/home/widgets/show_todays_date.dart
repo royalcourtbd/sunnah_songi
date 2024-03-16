@@ -26,10 +26,15 @@ class ShowTodaysDate extends StatelessWidget {
                       // '25 Shaaban, 1445',
                       controller.arabicDate,
                       style: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold)),
+                            // fontFamily: "Roboto",
+                          fontSize: 18, fontWeight: FontWeight.bold)),
                   Text(
                       // 'বুধ, ১২ মে, ২০২৪'
-                      controller.banglaDate),
+                      controller.banglaDate,
+                      style: const TextStyle(
+                        fontFamily: "Kalpurush"
+                      ),
+                      ),
                 ],
               );
             }),

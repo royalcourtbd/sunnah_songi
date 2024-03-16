@@ -27,8 +27,14 @@ class StartPage extends StatelessWidget {
                   child: Container(
                     height: 45.percentHeight,
                     decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/home.jpg", ),
+                        opacity: 0.02,
+                        // fit: BoxFit.cover
+                        ),
                       gradient: bgLightGradient,
                     ),
+                    // child: SvgPicture.asset("assets/images/home.svg"),
                   ),
                 ),
                 Column(
@@ -44,7 +50,12 @@ class StartPage extends StatelessWidget {
                   ],
                 ),
                 AppBar(
-                  title: const Text('Sunnah Songi'),
+                  title: const Text(
+                    'Sunnah Songi',
+                    style: TextStyle(
+                      fontFamily: "Roboto"
+                    ),
+                    ),
                   centerTitle: true,
                   backgroundColor: Colors.transparent,
                   leading: IconButton(
