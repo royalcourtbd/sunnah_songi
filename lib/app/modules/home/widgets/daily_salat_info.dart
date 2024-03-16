@@ -27,17 +27,20 @@ class DailySalatInfo extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const Text(
-                'এশা',
-                style: TextStyle(
+               Text(
+                controller.currentPrayerName,
+                style: const TextStyle(
                   fontSize: 24,
+                  fontFamily: 'Kalpurush',
                   fontWeight: FontWeight.w600,
                   color: Color(0xff049B78),
                 ),
               ),
-              const Text(
-                '০৭:১৯ - ০১:২০',
-                style: TextStyle(
+               Text(
+                // '০৭:১৯ - ০১:২০',
+                controller.currentPrayerTime,
+                style: const TextStyle(
+                  fontFamily: "kalpurush",
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),

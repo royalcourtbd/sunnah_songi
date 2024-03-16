@@ -26,10 +26,8 @@ class HomeController extends GetxController implements GetxService {
     {'name': 'ইশা', 'range': '০০ঃ০০ - ০০ঃ০০'},
 
   ];
-  
-
-
-
+  String currentPrayerName = '';
+  String currentPrayerTime = '০০ঃ০০ - ০০ঃ০০';
     String sunRise = "00.00";
     String sunSet = "00.00";
 
@@ -52,7 +50,26 @@ class HomeController extends GetxController implements GetxService {
 
     getCurrentArabicDate();
     prayerTimesInBangla = await getPrayerTime();
+    cheking();
     update();
+  }
+
+    void cheking(){
+  // Iterate through the list to find the entry with the desired name
+  Map<String, String>? foundPrayerTime;
+  for (var prayerTime in prayerTimesInBangla) {
+    if (prayerTime['name'] == currentPrayerName) {
+      foundPrayerTime = prayerTime;
+      break;
+    }
+  }
+
+  // Print the name and range if found
+  if (foundPrayerTime != null) {
+    String start = convertTimeToBangla(foundPrayerTime['range']!.split('-').first);
+    String end = convertTimeToBangla(foundPrayerTime['range']!.split('-').last);
+    currentPrayerTime = "$start - $end";
+  } 
   }
 
   Future<void> getCurrentLocation() async {
@@ -144,12 +161,30 @@ class HomeController extends GetxController implements GetxService {
 
     sunRise = DateFormat.jm().format(sunriseStart);
     sunSet = DateFormat.jm().format(sunset);
-    // output.add({
-    //   'name': 'sunrise',
-    //   'range':
-    //       '${DateFormat.jms().format(sunriseStart)} - ${DateFormat.jm().format(sunset)}'
-    // });
 
+    currentPrayerName = convertCurrentPrayerNameIntoBangla(prayerTimes.currentPrayer().name);
+    
     return output;
   }
+
+
+  // List<Map<String, String>> prayerTimesInBangla = [
+  //   {'name': 'ফজর', 'range': '০০ঃ০০ - ০০ঃ০০'},
+  //   {'name': 'ধোহর', 'range': '০০ঃ০০ - ০০ঃ০০'},
+  //   {'name': 'আসর', 'range': '০০ঃ০০ - ০০ঃ০০'},
+  //   {'name': 'মাগরিব', 'range': '০০ঃ০০ - ০০ঃ০০'},
+  //   {'name': 'ইশা', 'range': '০০ঃ০০ - ০০ঃ০০'},
+
+  // ];
+
+  String convertCurrentPrayerNameIntoBangla(String name){
+    if(name=="fajr") return "ফজর";
+    if(name=="dhuhr") return "ধোহর";
+    if(name=="asr") return "আসর";
+    if(name=="maghrib") return "মাগরিব";
+    if(name=="isha") return "ইশা";
+    return '';
+  }
 }
+
+
