@@ -1,4 +1,4 @@
-package com.example.sunnah_songi
+package com.royalcourtbd.sunnah_songi
 
 import io.flutter.embedding.android.FlutterActivity
 

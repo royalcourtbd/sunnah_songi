@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "377264687395",
+    "project_id": "sunnahsongi",
+    "storage_bucket": "sunnahsongi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377264687395:android:d2b783dfeb23ff5c12e496",
+        "android_client_info": {
+          "package_name": "com.royalcourtbd.sunnah_songi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4sXahsmBtcTCCi5PeOo8XVxLBU_ijFNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

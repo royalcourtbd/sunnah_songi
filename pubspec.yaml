@@ -44,6 +44,13 @@ dependencies:
   fluttertoast: ^8.2.4
   flutter_svg: ^2.0.10+1
   lottie: ^3.1.0
+  firebase_core: ^2.27.1
+  firebase_messaging: ^14.7.16
+  firebase_analytics: ^10.8.10
+  firebase_crashlytics: ^3.4.19
+
+dependency_overrides:
+  web: ^0.5.1
 
 dev_dependencies:
   flutter_test:
