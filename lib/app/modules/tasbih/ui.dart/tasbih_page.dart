@@ -54,19 +54,16 @@ class TasbihPage extends StatelessWidget {
             'Tap on circle to count tasbih',
             style: TextStyle(fontSize: 20),
           ),
-          InkWell(
-            onTap: () => log('Tasbih count'),
-            child: const CircularSeekBar(
-              width: double.infinity,
-              height: 200,
-              progress: 15,
-              trackColor: SunnahColor.appBarColor,
-              progressColor: SunnahColor.appbarColorLight,
-              maxProgress: 33,
-              minProgress: 0,
-              child: Center(
-                child: Text('1', style: TextStyle(fontSize: 20)),
-              ),
+          const CircularSeekBar(
+            width: double.infinity,
+            height: 200,
+            progress: 15,
+            trackColor: SunnahColor.appBarColor,
+            progressColor: SunnahColor.appbarColorLight,
+            maxProgress: 33,
+            minProgress: 0,
+            child: Center(
+              child: Text('1', style: TextStyle(fontSize: 20)),
             ),
           ),
           Container(
