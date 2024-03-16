@@ -43,8 +43,6 @@ class HomeController extends GetxController implements GetxService {
   void initFunctions() async {
     await getCurrentLocation();
     String? locationString = await homeRepository.getSavedLocation();
-    print("====> $locationString");
-
     if (locationString != null) {
       locationDetails = locationString;
       update();
