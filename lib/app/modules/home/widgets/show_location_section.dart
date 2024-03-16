@@ -39,7 +39,7 @@ class ShowLocationSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'আসসালামু আলাইকুম',
+                  'আস-সালামু আলাইকুম',
                   style: TextStyle(
                     fontSize: 18,
                     fontFamily: "Kalpurush",
@@ -48,7 +48,7 @@ class ShowLocationSection extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 60.percentWidth,
-                  height: 30,
+                  // height: 30,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -57,15 +57,17 @@ class ShowLocationSection extends StatelessWidget {
                       ),
                       gapW5,
                       GetBuilder<HomeController>(builder: (controller) {
-                        return Text(
-                          controller.locationDetails,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                          softWrap: true,
-                          style: const TextStyle(
+                        return Flexible(
+                          child: Text(
+                            controller.locationDetails,
                             overflow: TextOverflow.ellipsis,
-                            fontFamily: "Roboto",
-                            fontSize: 14,
+                            maxLines: 2,
+                            softWrap: true,
+                            style: const TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontFamily: "Roboto",
+                              fontSize: 14,
+                            ),
                           ),
                         );
                       }),
