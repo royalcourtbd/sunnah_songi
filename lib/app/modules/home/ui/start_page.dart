@@ -16,66 +16,66 @@ class StartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0.98),
-      body: SingleChildScrollView(
+      body: ListView(
+        shrinkWrap: true,
+        padding: EdgeInsets.zero,
         physics: const ClampingScrollPhysics(),
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipPath(
-                  clipper: OvalBottomBorderClipper(),
-                  child: Container(
-                    height: 45.percentHeight,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/home.jpg", ),
-                        opacity: 0.02,
-                        // fit: BoxFit.cover
-                        ),
-                      gradient: bgLightGradient,
-                    ),
-                    // child: SvgPicture.asset("assets/images/home.svg"),
+        children: [
+          Stack(
+            children: [
+              ClipPath(
+                clipper: OvalBottomBorderClipper(),
+                child: Container(
+                  height: 45.percentHeight,
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage("assets/images/home.jpg", ),
+                      opacity: 0.02,
+                      // fit: BoxFit.cover
+                      ),
+                    gradient: bgLightGradient,
                   ),
+                  // child: SvgPicture.asset("assets/images/home.svg"),
                 ),
-                Column(
-                  children: [
-                    SizedBox(height: SunnahScreen.height * 0.14),
-                    StartPageAnnouncement(theme: Theme.of(context)),
-                    gapH15,
-                    const ShowLocationSection(),
-                    gapH15,
-                    const ShowTodaysDate(),
-                    gapH15,
-                    const DailySalatInfo()
-                  ],
-                ),
-                AppBar(
-                  title: const Text(
-                    'Sunnah Songi',
-                    style: TextStyle(
-                      fontFamily: "Roboto"
-                    ),
-                    ),
-                  centerTitle: true,
-                  backgroundColor: Colors.transparent,
-                  leading: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.menu),
+              ),
+              Column(
+                children: [
+                  SizedBox(height: SunnahScreen.height * 0.14),
+                  StartPageAnnouncement(theme: Theme.of(context)),
+                  gapH15,
+                  const ShowLocationSection(),
+                  gapH15,
+                  const ShowTodaysDate(),
+                  gapH15,
+                  const DailySalatInfo()
+                ],
+              ),
+              AppBar(
+                title: const Text(
+                  'Sunnah Songi',
+                  style: TextStyle(
+                    fontFamily: "Roboto"
                   ),
-                  actions: [
-                    IconButton(
-                      onPressed: () {
-                        Fluttertoast.showToast(msg: "Updating Location");
-                        Get.find<HomeController>().initFunctions();
-                      },
-                      icon: const Icon(Icons.refresh),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ],
-        ),
+                  ),
+                centerTitle: true,
+                backgroundColor: Colors.transparent,
+                leading: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.menu),
+                ),
+                actions: [
+                  IconButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(msg: "Updating Location");
+                      Get.find<HomeController>().initFunctions();
+                    },
+                    icon: const Icon(Icons.refresh),
+                  )
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

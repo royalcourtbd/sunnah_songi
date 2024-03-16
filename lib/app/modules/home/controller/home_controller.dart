@@ -105,6 +105,7 @@ class HomeController extends GetxController implements GetxService {
     Position position = await locationRepository.getCurrentPosition();
     final myCoordinates = Coordinates(position.latitude, position.longitude);
     final params = CalculationMethod.karachi.getParameters();
+    /// Use  Madhab.shafi to get data as per salah.com , currently i am following aqidah apps time compass
     params.madhab = Madhab.shafi;
     final prayerTimes = PrayerTimes.today(myCoordinates, params);
 
