@@ -5,7 +5,6 @@ class TasbihController extends GetxController implements GetxService{
   int currentClick = 0;
 
   void incrementCount(){
-    print("Hellooooo");
     totalCount = totalCount+1;
     if(currentClick == 33){
       currentClick = 1;
