@@ -7,6 +7,7 @@ import 'package:sunnah_songi/app/modules/home/widgets/daily_salat_info.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_location_section.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/show_todays_date.dart';
 import 'package:sunnah_songi/app/modules/home/widgets/start_page_announcement.dart';
+import 'package:sunnah_songi/app/modules/tasbih/ui/tasbih_page.dart';
 import 'package:sunnah_songi/app/static/ui_const.dart';
 
 class StartPage extends StatelessWidget {
@@ -60,7 +61,7 @@ class StartPage extends StatelessWidget {
                 centerTitle: true,
                 backgroundColor: Colors.transparent,
                 leading: IconButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to( const TasbihPage(), transition: Transition.cupertino),
                   icon: const Icon(Icons.menu),
                 ),
                 actions: [
