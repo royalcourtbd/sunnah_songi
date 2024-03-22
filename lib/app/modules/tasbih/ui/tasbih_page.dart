@@ -5,6 +5,7 @@ import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
 import 'package:sunnah_songi/app/common/utils/string_converter.dart';
 import 'package:sunnah_songi/app/external_libs/circular_seek_bar-master/circular_seek_bar.dart';
 import 'package:sunnah_songi/app/modules/tasbih/controller/tasbih_controller.dart';
+import 'package:sunnah_songi/app/static/ui_const.dart';
 
 class TasbihPage extends StatelessWidget {
   const TasbihPage({super.key});
@@ -20,9 +21,11 @@ class TasbihPage extends StatelessWidget {
       body: GetBuilder<TasbihController>(
         builder: (controller) {
           return Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              gapH20,
+              SizedBox(height: 5.percentHeight,),
               SizedBox(
                 height: 50,
                 width: 40.percentWidth,
@@ -33,38 +36,42 @@ class TasbihPage extends StatelessWidget {
                       height: 200,
                       width: 20.percentWidth,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: Colors.grey[500],
                         borderRadius: BorderRadius.horizontal(
                           left: Radius.circular(tenPx),
                         ),
                       ),
                       child:  Text( convertTimeToBangla(controller.currentClick.toString()),
-                       style: const TextStyle(fontFamily: "Kalpurush",fontSize: 20)),
+                       style: const TextStyle(fontFamily: "Kalpurush",fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
                     ),
                     Container(
                       alignment: Alignment.center,
                       height: 200,
                       width: 20.percentWidth,
                       decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: Colors.green[900],
                         borderRadius: BorderRadius.horizontal(
                           right: Radius.circular(tenPx),
                         ),
                       ),
                       child: const  Text("৩৩", style:  TextStyle(
                         fontFamily: "Kalpurush",
-                        fontSize: 20)),
+                        fontSize: 20,
+                        color: Colors.white, fontWeight: FontWeight.bold
+                        )),
                     ),
                   ],
                 ),
               ),
+              const Spacer(),
               const Text(
                 'বৃত্তাকার পৃষ্ঠে ক্লিক করুন',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 14,
                   fontFamily: "Kalpurush"
                   ),
               ),
+              gapH20,
               CircularSeekBar(
                 width: double.infinity,
                 height: 200,
@@ -95,6 +102,7 @@ class TasbihPage extends StatelessWidget {
                   ),
                 ),
               ),
+              const Spacer(),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(fiftyPx),
@@ -115,7 +123,9 @@ class TasbihPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              gapH30,
+            
             ],
           );
         }
