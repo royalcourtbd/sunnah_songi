@@ -8,9 +8,9 @@ class NotificationsHelper {
   // Notification lib
   static AwesomeNotifications awesomeNotifications = AwesomeNotifications();
 
-  static int _createUniqueId() {
-    return DateTime.now().millisecondsSinceEpoch.remainder(100000);
-  }
+  // static int _createUniqueId() {
+  //   return DateTime.now().millisecondsSinceEpoch.remainder(100000);
+  // }
 
   static init() async {
     await _initNotification();
@@ -26,7 +26,7 @@ class NotificationsHelper {
             channelKey: 'basic_channel',
             channelName: 'Basic notifications',
             channelDescription: 'Notification channel for basic tests',
-            defaultColor: Color(0xFF9D50DD),
+            defaultColor: const Color(0xFF9D50DD),
             ledColor: Colors.white,)
       ],
     );
@@ -34,6 +34,6 @@ class NotificationsHelper {
 
  static Future<void> onActionReceivedMethod(
       ReceivedAction receivedAction) async {
-    Map<String, String?>? payload = receivedAction.payload;
+    // Map<String, String?>? payload = receivedAction.payload;
 }
 }

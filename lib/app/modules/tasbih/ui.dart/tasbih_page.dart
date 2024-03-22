@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:sunnah_songi/app/common/config/quran_color.dart';
 import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
