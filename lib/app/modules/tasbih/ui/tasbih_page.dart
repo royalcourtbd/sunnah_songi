@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sunnah_songi/app/common/config/quran_color.dart';
 import 'package:sunnah_songi/app/common/config/sunnah_screen.dart';
+import 'package:sunnah_songi/app/common/utils/string_converter.dart';
 import 'package:sunnah_songi/app/external_libs/circular_seek_bar-master/circular_seek_bar.dart';
 import 'package:sunnah_songi/app/modules/tasbih/controller/tasbih_controller.dart';
 
@@ -12,7 +13,9 @@ class TasbihPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tasbih'),
+        title: const Text('তাসবিহ',style: TextStyle(
+          fontFamily: "Kalpurush"
+        ),),
       ),
       body: GetBuilder<TasbihController>(
         builder: (controller) {
@@ -35,7 +38,8 @@ class TasbihPage extends StatelessWidget {
                           left: Radius.circular(tenPx),
                         ),
                       ),
-                      child:  Text(controller.currentClick.toString(), style: const TextStyle(fontSize: 20)),
+                      child:  Text( convertTimeToBangla(controller.currentClick.toString()),
+                       style: const TextStyle(fontFamily: "Kalpurush",fontSize: 20)),
                     ),
                     Container(
                       alignment: Alignment.center,
@@ -47,14 +51,19 @@ class TasbihPage extends StatelessWidget {
                           right: Radius.circular(tenPx),
                         ),
                       ),
-                      child: const Text('33', style: TextStyle(fontSize: 20)),
+                      child: const  Text("৩৩", style:  TextStyle(
+                        fontFamily: "Kalpurush",
+                        fontSize: 20)),
                     ),
                   ],
                 ),
               ),
               const Text(
-                'Tap on circle to count tasbih',
-                style: TextStyle(fontSize: 20),
+                'বৃত্তাকার পৃষ্ঠে ক্লিক করুন',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Kalpurush"
+                  ),
               ),
               CircularSeekBar(
                 width: double.infinity,
@@ -79,7 +88,10 @@ class TasbihPage extends StatelessWidget {
                         // color: Colors.amber
                       ),
                       alignment: Alignment.center,
-                      child: Text(controller.totalCount.toString(), style: TextStyle(fontSize: 20))),
+                      child: Text( convertTimeToBangla(controller.totalCount.toString()),
+                       style: const TextStyle(fontFamily: "Kalpurush",fontSize: 20))
+                      
+                      ),
                   ),
                 ),
               ),
@@ -97,7 +109,10 @@ class TasbihPage extends StatelessWidget {
                     Icons.delete_outline,
                   ),
                   label: const Text(
-                    'Reset',
+                    'রিসেট করুন',
+                    style: TextStyle(
+                      fontFamily: "Kalpurush"
+                    ),
                   ),
                 ),
               )
